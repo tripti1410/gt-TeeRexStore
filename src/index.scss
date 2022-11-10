@@ -1,7 +1,12 @@
 :root {
  color-scheme: light dark;
- color: rgba(255, 255, 255, 0.87);
- background-color: #242424;
+ //  Dark
+ --clr-1: #fff5d7;
+ --clr-2: #31132a;
+ --clr-3: #ff9f29;
+ --clr-4: #1a4d2e;
+ color: var(--clr-1);
+ background-color: var(--clr-2);
 
  font-synthesis: none;
  text-rendering: optimizeLegibility;
@@ -48,7 +53,8 @@ button {
  font-size: 1em;
  font-weight: 500;
  font-family: inherit;
- background-color: #1a1a1a;
+ background-color: var(--clr-3);
+ color: var(--clr-2);
  cursor: pointer;
  transition: border-color 0.25s;
 }
@@ -66,13 +72,9 @@ img {
 
 @media (prefers-color-scheme: light) {
  :root {
-  color: #213547;
-  background-color: #ffffff;
- }
- a:hover {
-  color: #747bff;
- }
- button {
-  background-color: #f9f9f9;
+  --clr-1: #31132a;
+  --clr-2: #fff5d7;
+  --clr-3: #1a4d2e;
+  --clr-4: #ff9f29;
  }
 }

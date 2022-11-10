@@ -11,7 +11,7 @@ function App() {
     <h1 className="sidebar">TeeRex Store</h1>
     <nav>
      <a href="/">Products</a>
-     <a href="/">Cart</a>
+     {/* <a href="/style-guide">style-guide</a> */}
     </nav>
    </header>
 

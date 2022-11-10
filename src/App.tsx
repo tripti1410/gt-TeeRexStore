@@ -1,21 +1,22 @@
 import { useState } from "react";
 import "./App.scss";
+import "./layout.scss";
 
 function App() {
  const [count, setCount] = useState(0);
 
  return (
-  <div className="App">
-   <header>
-    <h1>TeeRex Store</h1>
+  <div className="wrapper">
+   <header className="with-sidebar">
+    <h1 className="sidebar">TeeRex Store</h1>
     <nav>
      <a href="/">Products</a>
      <a href="/">Cart</a>
     </nav>
    </header>
 
-   <main>
-    <aside>
+   <main className="with-sidebar">
+    <aside className="sidebar">
      <div className="sidebar__category">
       <div className="sidebar__heading">
        Type
@@ -101,15 +102,90 @@ function App() {
       </div>
      </div>
     </aside>
-    <article>
-     <div>
-      <img src="https://via.placeholder.com/150" alt="" />
+    <article className="products">
+     <div className="product">
+      <img
+       className="product__image"
+       src="https://via.placeholder.com/300"
+       alt=""
+      />
+      <span>Rs 300</span>
+      <button>Add to cart</button>
+     </div>
+     <div className="product">
+      <img
+       className="product__image"
+       src="https://via.placeholder.com/300"
+       alt=""
+      />
+      <span>Rs 300</span>
+      <button>Add to cart</button>
+     </div>
+     <div className="product">
+      <img
+       className="product__image"
+       src="https://via.placeholder.com/300"
+       alt=""
+      />
+      <span>Rs 300</span>
+      <button>Add to cart</button>
+     </div>
+     <div className="product">
+      <img
+       className="product__image"
+       src="https://via.placeholder.com/300"
+       alt=""
+      />
+      <span>Rs 300</span>
+      <button>Add to cart</button>
+     </div>
+     <div className="product">
+      <img
+       className="product__image"
+       src="https://via.placeholder.com/300"
+       alt=""
+      />
       <span>Rs 300</span>
       <button>Add to cart</button>
      </div>
     </article>
    </main>
-   <footer>footer</footer>
+   <div className="cart">
+    <ul className="cart__list">
+     <li>
+      {" "}
+      <img src="https://via.placeholder.com/300" alt="" />
+     </li>
+     <li>
+      {" "}
+      <img src="https://via.placeholder.com/300" alt="" />
+     </li>
+    </ul>
+    <button className="cart__btn">
+     <svg
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+     >
+      <path
+       d="M5 12.5H19"
+       stroke="currentColor"
+       strokeWidth="2"
+       strokeLinecap="round"
+       strokeLinejoin="round"
+      />
+      <path
+       d="M12 5.5L19 12.5L12 19.5"
+       stroke="currentColor"
+       strokeWidth="2"
+       strokeLinecap="round"
+       strokeLinejoin="round"
+      />
+     </svg>
+    </button>
+   </div>
   </div>
  );
 }

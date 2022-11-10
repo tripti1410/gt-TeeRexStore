@@ -8,7 +8,10 @@ function App() {
  return (
   <div className="wrapper">
    <header className="with-sidebar">
-    <h1 className="sidebar">TeeRex Store</h1>
+    <h1 className="sidebar">
+     TeeRex
+     <span>Store</span>
+    </h1>
     <nav>
      <a href="/">Products</a>
     </nav>
@@ -101,6 +104,13 @@ function App() {
       </div>
      </div>
     </aside>
+    <div>
+     <input
+      className="header__search"
+      type="text"
+      placeholder="Search for products"
+     />
+    </div>
     <article className="products">
      <div className="product">
       <img

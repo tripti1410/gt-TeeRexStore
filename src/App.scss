@@ -8,12 +8,41 @@
   padding: 0;
  }
 }
-.sidebar__options .check {
- display: flex;
-}
 .check {
+ position: relative;
+ display: flex;
+ align-items: center;
+ margin-bottom: 4px;
+ cursor: pointer;
+ transition: 0.1s linear;
+ &__checkbox {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--clr-1);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
  &__checkbox path {
   stroke: var(--clr-3);
+ }
+ &__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+ }
+ &__text {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-left: 0.8rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
  }
 }
 
@@ -54,4 +83,8 @@
  &-desc {
   display: grid;
  }
+}
+// header
+h1 span {
+ color: var(--clr-3);
 }

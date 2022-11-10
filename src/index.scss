@@ -1,10 +1,10 @@
 :root {
  color-scheme: light dark;
  //  Dark
- --clr-1: #fff5d7;
- --clr-2: #31132a;
- --clr-3: #ff9f29;
- --clr-4: #1a4d2e;
+ --clr-1: #fff;
+ --clr-2: #153462;
+ --clr-3: #fcffa6;
+ --clr-4: #ffb319;
  color: var(--clr-1);
  background-color: var(--clr-2);
 
@@ -16,7 +16,7 @@
  --headerHeight: 3rem;
 }
 body {
- font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+ font-family: "Roboto", sans-serif;
  font-size: 1rem;
  line-height: 1.5;
  font-weight: 400;
@@ -59,7 +59,8 @@ button {
  transition: border-color 0.25s;
 }
 button:hover {
- border-color: #646cff;
+ background-color: var(--clr-4);
+ color: var(--clr-1);
 }
 button:focus,
 button:focus-visible {
@@ -72,9 +73,9 @@ img {
 
 @media (prefers-color-scheme: light) {
  :root {
-  --clr-1: #31132a;
-  --clr-2: #fff5d7;
-  --clr-3: #1a4d2e;
-  --clr-4: #ff9f29;
+  --clr-1: #153462;
+  --clr-2: #fff;
+  --clr-3: #ffb319;
+  --clr-4: #fcffa6;
  }
 }

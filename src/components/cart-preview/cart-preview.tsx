@@ -1,4 +1,5 @@
 import './cart-preview.scss';
+import { Link } from 'react-router-dom';
 
 function CartPreview() {
   return (
@@ -13,7 +14,8 @@ function CartPreview() {
           <img src="https://via.placeholder.com/300" alt="" />
         </li>
       </ul>
-      <button className="cart-preview__btn">
+      <Link className="cart-preview__btn" to="/shopping-cart">
+        {' '}
         <svg
           width="24"
           height="25"
@@ -36,7 +38,7 @@ function CartPreview() {
             strokeLinejoin="round"
           />
         </svg>
-      </button>
+      </Link>
     </div>
   );
 }

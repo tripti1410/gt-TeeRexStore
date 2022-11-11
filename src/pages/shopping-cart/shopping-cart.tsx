@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './shopping-cart.scss';
 
 function ShoppingCart() {
@@ -24,6 +25,7 @@ function ShoppingCart() {
           <button>Delete</button>
         </li>
       </ul>
+      <Link to="/">Back</Link>
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import './shoppoing-cart.scss';
+import './shopping-cart.scss';
+
 function ShoppingCart() {
   return (
     <div className="shopping-cart-page">

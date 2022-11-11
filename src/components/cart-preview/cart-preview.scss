@@ -1,0 +1,22 @@
+.cart-preview {
+ height: 2rem;
+ width: max-content;
+ padding: 1rem 2rem;
+ background-color: var(--clr-1);
+ position: fixed;
+ bottom: 0;
+ left: 50%;
+ transform: translateX(-50%);
+ display: flex;
+ gap: 1rem;
+ align-items: center;
+ border-radius: 0.4rem 0.4rem 0 0;
+ &__list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+ }
+ &__list > * {
+  width: 3rem;
+ }
+}

@@ -6,10 +6,10 @@ function Sidebar() {
   const filters = useSelector((state: State) => state.filters);
   return (
     <aside className="sidebar">
-      {filters.map((filter) => {
+      {filters.map((filter, index) => {
         const filterName = Object.keys(filter)[0];
         return (
-          <div className="sidebar__category">
+          <div className="sidebar__category" key={`filter-category-${index}`}>
             <div className="sidebar__heading">
               {filterName}
               <svg
@@ -28,8 +28,8 @@ function Sidebar() {
               </svg>
             </div>
             <div className="sidebar__options">
-              {filter[filterName].map((filterItems) => (
-                <label className="check">
+              {filter[filterName].map((filterItems, index) => (
+                <label className="check" key={`filter-item-${index}`}>
                   <input type="checkbox" className="check__input" />
                   <span className="check__checkbox">
                     <svg

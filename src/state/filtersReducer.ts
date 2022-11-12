@@ -7,7 +7,17 @@ const filters: Array<Filter> = [];
 function getFilters() {
   filtersType.forEach((filter) => {
     const allValues = PRODUCTS.map((product) => product[filter]);
-    filters.push({ [filter]: removeDuplicates(allValues) });
+    if (filter === 'price') {
+      const maxPrice = Math.max(...removeDuplicates(allValues));
+      const priceFilter = [
+        `Rs 0 - ${maxPrice / 2}`,
+        `Rs ${maxPrice / 2} - ${maxPrice}`,
+        `Rs < ${maxPrice}`,
+      ];
+      filters.push({ [filter]: priceFilter });
+    } else {
+      filters.push({ [filter]: removeDuplicates(allValues) });
+    }
   });
   return filters;
 }

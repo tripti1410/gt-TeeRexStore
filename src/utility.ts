@@ -1,5 +1,5 @@
-export function removeDuplicates(arr: string[]) {
+export function removeDuplicates(arr: string[] | number[]) {
   return arr.filter(
-    (item: string, index: number) => arr.indexOf(item) === index
+    (item: string | number, index: number) => arr.indexOf(item) === index
   );
 }

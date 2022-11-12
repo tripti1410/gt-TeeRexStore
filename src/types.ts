@@ -10,8 +10,9 @@ export interface Product {
   quantity: number;
 }
 export interface Filter {
-  [key: string]: string[];
+  [key: string]: string[] | number[];
 }
+
 export interface State {
   products: Array<Product>;
   productCount: number;

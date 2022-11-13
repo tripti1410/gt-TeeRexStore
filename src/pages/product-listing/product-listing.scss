@@ -1,5 +1,20 @@
 .products {
- display: grid;
- grid-gap: 2rem;
- grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-area: products;
+}
+.product-listing-page {
+  display: grid;
+  grid-template-areas:
+    'search search filters'
+    'products products products';
+}
+
+@media (min-width: 767px) {
+  .product-listing-page {
+    grid-template-areas:
+      '. . search'
+      'filters products products';
+  }
 }

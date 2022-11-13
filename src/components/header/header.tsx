@@ -1,10 +1,13 @@
 function Header() {
   return (
-    <header className="with-sidebar">
-      <h1 className="sidebar">
-        TeeRex
-        <span>Store</span>
-      </h1>
+    <header>
+      <a href="/">
+        <h1>
+          TeeRex
+          <span>Store</span>
+        </h1>
+      </a>
+
       <nav>
         <a href="/">Products</a>
       </nav>

@@ -3,7 +3,7 @@ import { increment, decrement } from './counter';
 import { Product, State } from '../../types';
 
 function ProductCard(product: Product) {
-  const count = useSelector((state: State) => state.productCount);
+  const count = useSelector((state: State) => state.productCount.value);
   const dispatch = useDispatch();
   return (
     <div className="product" id={`product-${product.id}`}>

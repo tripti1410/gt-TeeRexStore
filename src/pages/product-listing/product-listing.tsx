@@ -8,7 +8,7 @@ import { State } from '../../types';
 function ProductListing() {
   const products = useSelector((state: State) => state.products);
   return (
-    <div className="with-sidebar">
+    <div className="product-listing-page">
       <Sidebar />
       <Search />
       <article className="products">

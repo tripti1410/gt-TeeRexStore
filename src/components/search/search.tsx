@@ -1,6 +1,8 @@
+import './search.scss';
+
 function Search() {
   return (
-    <div>
+    <div className="search-bar">
       <input
         className="header__search"
         type="text"

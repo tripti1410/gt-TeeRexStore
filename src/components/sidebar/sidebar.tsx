@@ -5,7 +5,7 @@ import { State } from '../../types';
 function Sidebar() {
   const filters = useSelector((state: State) => state.filters);
   return (
-    <aside className="sidebar">
+    <aside className="sidebar-filters">
       {filters.map((filter, index) => {
         const filterName = Object.keys(filter)[0];
         return (

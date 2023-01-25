@@ -1,0 +1,109 @@
+prettier
+eslint
+Router
+redux
+Jest
+
+
+make an api call get all the data
+
+- Display all the data
+- Filter
+	filter data based on three parameters and show the filtered data
+	filter can ve applied with the search results
+- Search with name, color or type and display the result
+
+*** Above items not necessary to be there on the cart page
+
+- Sold out
+-
+
+Store all the data in a variable
+	that varible will be used for filter and filter and search
+
+export async function getProducts() {
+  const url =
+    'https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json';
+  try {
+    const res = await fetch(url);
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+import { createSlice } from '@reduxjs/toolkit';
+let shoppingCart = [];
+let selectedproduct = {};
+function filterShoppingCartIncrement(product) {
+  const b = shoppingCart.filter((item) => item.id === product.id);
+  if (b.length > 0) {
+    shoppingCart = shoppingCart.map((item) => {
+      if (item.id === product.id) {
+        item.quantity += 1;
+        selectedproduct = item;
+        return item;
+      }
+      return item;
+    });
+  } else {
+    shoppingCart.push({ ...product, quantity: 1 });
+  }
+}
+function filterShoppingCartDecrement(product) {
+  //Is the same item available in the shopping cart
+  const b = shoppingCart.filter((item) => item.id === product.id);
+  if (b.length > 0) {
+    shoppingCart = shoppingCart.map((item) => {
+      if (item.id === product.id) {
+        item.quantity -= 1;
+        selectedproduct = item;
+        return item;
+      }
+      return item;
+    });
+  }
+}
+
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState: {
+    selectedproduct: null,
+    shoppingCart: [],
+  },
+  reducers: {
+    increment: (state, product) => {
+      console.log(state, product, 'inside');
+      if (state.shoppingCart.length > 0) {
+        const b = state.shoppingCart.filter(
+          (item) => item.id === product.payload.id
+        );
+        if (b.length > 0) {
+          console.log('insided selected oitem');
+          state.shoppingCart = state.shoppingCart.map((item) => {
+            if (item.id === product.payload.id) {
+              item.quantity += 1;
+              state.selectedproduct = item;
+              console.log(state.selectedproduct, 'ffaddw');
+              return item;
+            }
+            return item;
+          });
+        }
+      } else {
+        console.log('nothung or different item');
+        state.shoppingCart.push({ ...product, quantity: 1 });
+      }
+      // filterShoppingCartIncrement(product.payload);
+      // state = selectedproduct;
+
+      return state;
+    },
+    decrement: (state, product) => {
+      filterShoppingCartDecrement(product.payload);
+      state = selectedproduct;
+      return state;
+    },
+  },
+});
+export const { increment, decrement } = counterSlice.actions;
+export default counterSlice.reducer;

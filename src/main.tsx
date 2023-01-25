@@ -4,7 +4,7 @@ import './index.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/error-page/error-page';
 import ShoppingCart from './pages/shopping-cart/shopping-cart';
-import { store } from './state/store';
+import { store } from './app/store';
 import { Provider } from 'react-redux';
 import Header from './components/header/header';
 import ProductListing from './pages/product-listing/product-listing';

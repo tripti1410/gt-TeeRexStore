@@ -4,19 +4,19 @@ import Search from '../../components/search/search';
 import Sidebar from '../../components/sidebar/sidebar';
 import './product-listing.scss';
 import { useSelector } from 'react-redux';
-import { State } from '../../types';
+
 function ProductListing() {
-  const products = useSelector((state: State) => state.products);
+  const products = useSelector((state) => state.productListing);
   return (
     <div className="product-listing-page">
       <Sidebar />
-      <Search />
+      {/* <Search /> */}
       <article className="products">
         {products.map((product) => (
           <ProductCard {...product} key={product.id} />
         ))}
       </article>
-      <CartPreview />
+      {/* <CartPreview /> */}
     </div>
   );
 }

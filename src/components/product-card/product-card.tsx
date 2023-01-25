@@ -1,17 +1,26 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from './counter';
+import {
+  addProduct,
+  removeProduct,
+} from '../../features/add-to-cart/add-to-cart-slice';
 import { Product, State } from '../../types';
 
 function ProductCard(product: Product) {
-  const count = useSelector((state: State) => state.productCount.value);
-  const dispatch = useDispatch();
+  const dispath = useDispatch();
+
+  function addProductHandle() {
+    dispath(addProduct({ id: product.id }));
+  }
+  function removeProductHandle() {
+    dispath(removeProduct({ id: product.id }));
+  }
   return (
     <div className="product" id={`product-${product.id}`}>
       <img className="product__image" src={product.imageURL} alt="" />
       <span>Rs {product.price}</span>
-      <button onClick={() => dispatch(decrement())}>-</button>
-      <span>{count}</span>
-      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={removeProductHandle}>-</button>
+      {/* <span>{count.quantity}</span> */}
+      <button onClick={addProductHandle}>+</button>
     </div>
   );
 }

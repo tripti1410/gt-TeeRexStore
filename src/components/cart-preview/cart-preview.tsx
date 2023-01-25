@@ -15,7 +15,6 @@ function CartPreview() {
         </li>
       </ul>
       <Link className="cart-preview__btn" to="/shopping-cart">
-        {' '}
         <svg
           width="24"
           height="25"

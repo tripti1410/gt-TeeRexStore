@@ -1,9 +1,8 @@
 import './sidebar.scss';
 import { useSelector } from 'react-redux';
-import { State } from '../../types';
 
 function Sidebar() {
-  const filters = useSelector((state: State) => state.filters);
+  const filters = useSelector((state) => state.filters);
   return (
     <aside className="sidebar-filters">
       {filters.map((filter, index) => {

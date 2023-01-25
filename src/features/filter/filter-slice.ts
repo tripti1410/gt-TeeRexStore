@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { PRODUCTS, filtersType } from './data';
-import { removeDuplicates } from '../utility';
-import { Filter } from '../types';
+import { PRODUCTS, filtersType } from '../../app/data';
+import { removeDuplicates } from '../../utility';
+import { Filter } from '../../types';
 
 const filters: Array<Filter> = [];
 function getFilters() {

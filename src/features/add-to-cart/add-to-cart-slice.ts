@@ -6,7 +6,7 @@ export const addTocart = createSlice({
     selectedProducts: [],
   },
   reducers: {
-    addProduct(state, payload) {
+    addProductToCart(state, payload) {
       const selectedProduct = payload.payload;
       const idProductSelected = state.selectedProducts.find(
         (product) => product.id === selectedProduct.id
@@ -27,7 +27,7 @@ export const addTocart = createSlice({
         state.selectedProducts.push(newProduct);
       }
     },
-    removeProduct(state, payload) {
+    removeProductFromCart(state, payload) {
       const selectedProduct = payload.payload;
       const idProductSelected = state.selectedProducts.find(
         (product) => product.id === selectedProduct.id
@@ -48,5 +48,5 @@ export const addTocart = createSlice({
   },
 });
 
-export const { addProduct, removeProduct } = addTocart.actions;
+export const { addProductToCart, removeProductFromCart } = addTocart.actions;
 export default addTocart.reducer;

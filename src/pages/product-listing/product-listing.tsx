@@ -6,7 +6,9 @@ import './product-listing.scss';
 import { useSelector } from 'react-redux';
 
 function ProductListing() {
-  const products = useSelector((state) => state.productListing);
+  const abc = useSelector((state) => state.productListing.products);
+  const products = abc;
+
   return (
     <div className="product-listing-page">
       <Sidebar />

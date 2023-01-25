@@ -24,9 +24,23 @@ function ProductCard(product: Product) {
     <div className="product" id={`product-${product.id}`}>
       <img className="product__image" src={product.imageURL} alt="" />
       <span>Rs {product.price}</span>
-      <button onClick={removeProductHandle}>-</button>
-      <span>{product.selectedQuanity}</span>
-      <button onClick={addProductHandle}>+</button>
+      <button
+        disabled={product.quantity <= product.selectedQuanity}
+        onClick={removeProductHandle}
+      >
+        -
+      </button>
+      <span>
+        {product.quantity <= product.selectedQuanity
+          ? 'out of stock'
+          : product.selectedQuanity}
+      </span>
+      <button
+        disabled={product.quantity <= product.selectedQuanity}
+        onClick={addProductHandle}
+      >
+        +
+      </button>
     </div>
   );
 }

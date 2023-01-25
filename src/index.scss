@@ -66,6 +66,9 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+button:disabled {
+  background-color: gray;
+}
 img {
   display: block;
   width: 100%;

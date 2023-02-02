@@ -363,4 +363,4 @@ export const PRODUCTS: Array<Product> = [
   },
 ];
 
-export const filtersType: string[] = ['type', 'gender', 'price', 'color'];
+export const filtersType: string[] = ['color', 'gender', 'price', 'type'];

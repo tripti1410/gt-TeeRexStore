@@ -1,16 +1,38 @@
 import './sidebar.scss';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addFilter,
+  removeFilter,
+} from '../../features/products/product-api-slice';
 function Sidebar() {
   const filters = useSelector((state) => state.filters);
+  const dispath = useDispatch();
+  function applyFilter(e, filterCategoryName) {
+    if (e.target.checked) {
+      dispath(
+        addFilter({
+          filterName: filterCategoryName,
+          filterValue: e.target.value,
+        })
+      );
+    } else {
+      dispath(
+        removeFilter({
+          filterName: filterCategoryName,
+          filterValue: e.target.value,
+        })
+      );
+    }
+  }
   return (
     <aside className="sidebar-filters">
       {filters.map((filter, index) => {
-        const filterName = Object.keys(filter)[0];
+        const filterCategoryName = Object.keys(filter)[0];
+        const filterValues = filter[filterCategoryName];
         return (
           <div className="sidebar__category" key={`filter-category-${index}`}>
             <div className="sidebar__heading">
-              {filterName}
+              {filterCategoryName}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -27,27 +49,17 @@ function Sidebar() {
               </svg>
             </div>
             <div className="sidebar__options">
-              {filter[filterName].map((filterItems, index) => (
+              {filterValues.map((filterName, index) => (
                 <label className="check" key={`filter-item-${index}`}>
-                  <input type="checkbox" className="check__input" />
-                  <span className="check__checkbox">
-                    <svg
-                      width="24"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 6.5L9 17.5L4 12.5"
-                        stroke="#fff"
-                        strokeWidth="2.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  <p className="check__text">{filterItems}</p>
+                  <input
+                    type="checkbox"
+                    className="check__input"
+                    value={filterName}
+                    id={filterName}
+                    name="type"
+                    onClick={(e) => applyFilter(e, filterCategoryName)}
+                  />
+                  <p className="check__text">{filterName}</p>
                 </label>
               ))}
             </div>

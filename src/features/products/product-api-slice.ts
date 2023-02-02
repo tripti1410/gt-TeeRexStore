@@ -6,6 +6,7 @@ export const productListingSlice = createSlice({
   name: 'products',
   initialState: {
     products: abc,
+    selectedFilters: {},
   },
   reducers: {
     addProductToProductListing(state, payload) {
@@ -46,9 +47,55 @@ export const productListingSlice = createSlice({
         });
       }
     },
+    addFilter(state, payload) {
+      const filter = payload.payload;
+
+      if (
+        Object.prototype.hasOwnProperty.call(
+          state.selectedFilters,
+          filter.filterName
+        )
+      ) {
+        return {
+          ...state,
+          selectedFilters: {
+            ...state.selectedFilters,
+            [filter.filterName]: [
+              ...state.selectedFilters[filter.filterName],
+              filter.filterValue,
+            ],
+          },
+        };
+      } else {
+        return {
+          ...state,
+          selectedFilters: {
+            ...state.selectedFilters,
+            [filter.filterName]: [filter.filterValue],
+          },
+        };
+      }
+    },
+    removeFilter(state, payload) {
+      const filter = payload.payload;
+
+      return {
+        ...state,
+        selectedFilters: {
+          ...state.selectedFilters,
+          [filter.filterName]: [
+            ...state.selectedFilters[filter.filterName],
+          ].filter((item) => item !== filter.filterValue),
+        },
+      };
+    },
   },
 });
 
 export default productListingSlice.reducer;
-export const { addProductToProductListing, removeProductFromProductListing } =
-  productListingSlice.actions;
+export const {
+  addProductToProductListing,
+  removeProductFromProductListing,
+  addFilter,
+  removeFilter,
+} = productListingSlice.actions;

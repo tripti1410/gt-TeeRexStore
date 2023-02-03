@@ -11,8 +11,8 @@ function getFilters() {
       const maxPrice = Math.max(...removeDuplicates(allValues));
       const priceFilter = [
         `Rs 0 - ${maxPrice / 2}`,
-        `Rs ${maxPrice / 2} - ${maxPrice}`,
-        `Rs < ${maxPrice}`,
+        `Rs ${maxPrice / 2 + 1} - ${maxPrice - 50}`,
+        `Rs ${maxPrice - 50} - ${maxPrice}`,
       ];
       filters.push({ [filter]: priceFilter });
     } else {

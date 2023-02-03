@@ -1,10 +1,26 @@
 function getFilteredProduct(product, filterName, filterValues) {
   let isProductmatched;
-  filterValues.forEach((value) => {
-    if (product[filterName] === value) {
-      isProductmatched = true;
-    }
-  });
+
+  if (filterName === 'price') {
+    filterValues.forEach((value) => {
+      const priceRange = value.split(' ');
+      const priceRangeLower = priceRange[1];
+      const priceRangeHigher = priceRange[3];
+      if (
+        product[filterName] >= priceRangeLower &&
+        product[filterName] <= priceRangeHigher
+      ) {
+        isProductmatched = true;
+      }
+    });
+  } else {
+    filterValues.forEach((value) => {
+      if (product[filterName] === value) {
+        isProductmatched = true;
+      }
+    });
+  }
+
   return isProductmatched;
 }
 

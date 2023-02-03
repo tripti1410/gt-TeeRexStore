@@ -49,7 +49,6 @@ export const productListingSlice = createSlice({
     },
     addFilter(state, payload) {
       const filter = payload.payload;
-
       if (
         Object.prototype.hasOwnProperty.call(
           state.selectedFilters,
@@ -78,16 +77,21 @@ export const productListingSlice = createSlice({
     },
     removeFilter(state, payload) {
       const filter = payload.payload;
+      const remainingFilters = [
+        ...state.selectedFilters[filter.filterName],
+      ].filter((item) => item !== filter.filterValue);
 
-      return {
-        ...state,
-        selectedFilters: {
-          ...state.selectedFilters,
-          [filter.filterName]: [
-            ...state.selectedFilters[filter.filterName],
-          ].filter((item) => item !== filter.filterValue),
-        },
-      };
+      if (remainingFilters.length <= 0) {
+        delete state.selectedFilters[filter.filterName];
+      } else {
+        return {
+          ...state,
+          selectedFilters: {
+            ...state.selectedFilters,
+            [filter.filterName]: remainingFilters,
+          },
+        };
+      }
     },
   },
 });

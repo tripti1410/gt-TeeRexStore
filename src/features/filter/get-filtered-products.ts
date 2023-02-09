@@ -33,7 +33,7 @@ function getFilteredProducts(products, filters) {
         output.push(true);
       }
     }
-    console.log(output, 'out', noOfFilters);
+
     if (output.length === noOfFilters) {
       return true;
     } else {

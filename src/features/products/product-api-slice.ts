@@ -1,11 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PRODUCTS } from '../../app/data';
 
-const abc = PRODUCTS.map((product) => ({ ...product, selectedQuanity: 0 }));
 export const productListingSlice = createSlice({
   name: 'products',
   initialState: {
-    products: abc,
+    products: PRODUCTS.map((product) => ({ ...product, selectedQuantity: 0 })),
     selectedFilters: {},
   },
   reducers: {
@@ -20,10 +19,10 @@ export const productListingSlice = createSlice({
           if (product.id === selectedProduct.id) {
             return {
               ...product,
-              selectedQuanity: product.selectedQuanity++,
+              selectedQuantity: product.selectedQuantity++,
             };
           } else {
-            return product;
+            return { ...product, selectedQuantity: 1 };
           }
         });
       }
@@ -39,7 +38,7 @@ export const productListingSlice = createSlice({
           if (product.id === selectedProduct.id) {
             return {
               ...product,
-              selectedQuanity: product.selectedQuanity--,
+              selectedQuantity: product.selectedQuantity--,
             };
           } else {
             return product;

@@ -7,7 +7,7 @@ export const addTocart = createSlice({
   },
   reducers: {
     addProductToCart(state, payload) {
-      const selectedProduct = payload.payload;
+      let selectedProduct = payload.payload.product;
       const idProductSelected = state.selectedProducts.find(
         (product) => product.id === selectedProduct.id
       );
@@ -15,7 +15,7 @@ export const addTocart = createSlice({
         state.selectedProducts.map((product) => {
           if (product.id === selectedProduct.id) {
             return {
-              id: product.id,
+              ...product,
               selectedQuantity: product.selectedQuantity++,
             };
           } else {
@@ -23,8 +23,12 @@ export const addTocart = createSlice({
           }
         });
       } else {
-        const newProduct = { id: selectedProduct.id, selectedQuantity: 1 };
-        state.selectedProducts.push(newProduct);
+        selectedProduct = {
+          ...selectedProduct,
+          selectedQuantity: 1,
+        };
+
+        state.selectedProducts.push(selectedProduct);
       }
     },
     removeProductFromCart(state, payload) {

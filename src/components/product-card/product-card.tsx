@@ -13,7 +13,7 @@ function ProductCard(product: Product) {
   const dispath = useDispatch();
 
   function addProductHandle() {
-    dispath(addProductToCart({ id: product.id }));
+    dispath(addProductToCart({ product: product }));
     dispath(addProductToProductListing({ id: product.id }));
   }
   function removeProductHandle() {
@@ -25,18 +25,18 @@ function ProductCard(product: Product) {
       <img className="product__image" src={product.imageURL} alt="" />
       <span>Rs {product.price}</span>
       <button
-        disabled={product.selectedQuanity === 0}
+        disabled={product.selectedQuantity === 0}
         onClick={removeProductHandle}
       >
         -
       </button>
       <span>
-        {product.quantity <= product.selectedQuanity
+        {product.quantity <= product.selectedQuantity
           ? 'out of stock'
-          : product.selectedQuanity}
+          : product.selectedQuantity}
       </span>
       <button
-        disabled={product.quantity <= product.selectedQuanity}
+        disabled={product.quantity <= product.selectedQuantity}
         onClick={addProductHandle}
       >
         +

@@ -44,7 +44,7 @@ function ProductListing() {
           <ProductCard {...product} key={product.id} />
         ))}
       </article>
-      {/* <CartPreview /> */}
+      <CartPreview />
     </div>
   );
 }
